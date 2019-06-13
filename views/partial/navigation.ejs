@@ -1,0 +1,109 @@
+<!-- navigation bar -->
+
+<style>
+    img {
+        height: auto;
+        width: 20%;
+    }
+    /* li div {
+    padding: 10px;
+} */
+/* #logout {
+    display: none;
+}
+
+#login {
+    display: block;
+} */
+    .nav-link {
+        display: block !important;
+
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <% if (type == "admin") { %>
+        <a href="/dashboard" class="navbar-brand" style="height:auto;width:auto">
+            <img src="/public/SCOPE.png" class="navbar-brand" alt="SCOPE"></img>
+        </a>
+    <% } else { %>
+        <a href="/" class="navbar-brand" style="height:auto;width:auto">
+            <img src="/public/SCOPE.png" class="navbar-brand" alt="SCOPE"></img>
+        </a>
+    <% } %>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarColor01" style="">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link <% if (title == "home") { %>active<% } %>" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <% if (title == "features") { %>active<% } %>" href="/features">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <% if (title == "product listing") { %>active<% } %>" href="/product-listing">Product Listing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <% if (title == "about") { %>active<% } %>" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <% if (title == "get started") { %>active<% } %>" href="/get-started">Get Started</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <% if (title == "FAQ") { %>active<% } %>" href="/FAQ">FAQ</a>
+      </li>
+    </ul>
+    <div class="my-2 my-lg-0">
+        <% if (uid) { %>
+            <button type="button" class="btn btn-primary" disabled id="uid">User ID: <%= uid %></button>
+            <a href="/logout">
+                <button type="button" class="btn btn-primary">Logout</button>
+            </a>
+            <% } else { %>
+                <a href="/register">
+                    <button type="button" class="btn btn-secondary">Sign up</button>
+                </a>
+                <a href="/login">
+                    <button type="button" class="btn btn-secondary">Login</button>
+                </a>
+                <% } %>
+    </div>
+  </div>
+</nav>
+        <script>
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var cookies = decodedCookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i];
+                    while (cookie.charAt(0) == ' ') {
+                        cookie = cookie.substring(1);
+                    }
+                    if (cookie.indexOf(name) == 0) {
+                        return cookie.substring(name.length, cookie.length);
+                    }
+                }
+                return "";
+            };
+            // function toggleActive() {
+            //     $(this).parent().siblings().removeClass("active");
+            //     console.log(this);
+            //     console.log($(this));
+            //     $(this).parent().addClass("active");
+            //     console.log("Run!");
+            // function toggleLog() {
+            //     if ($('#login').css("display") == "block") {
+            //         $('#login').css("display", "none");
+            //         $('#logout').css("display", "block");
+            //     }
+            //     else {
+            //         $('#login').css("display", "block");
+            //         $('#logout').css("display", "none");
+            //     }
+            // };
+            // console.log(getCookie("uid"));
+        </script>
